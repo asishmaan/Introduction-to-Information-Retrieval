@@ -1,0 +1,1 @@
+Machine learning is a branch of artificial intelligence that learns from data.

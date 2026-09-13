@@ -1,0 +1,1 @@
+Information retrieval helps users find relevant information from a collection of documents.
