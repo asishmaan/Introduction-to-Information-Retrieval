@@ -1,9 +1,0 @@
-# This project has NO external dependencies.
-#
-# It uses only the Python 3 standard library:
-#   os      - to list and open the document files
-#   string  - to get the list of punctuation characters
-#   sys     - to read the optional "test" command-line argument
-#
-# Nothing needs to be installed with pip. Just run:
-#   python ir_system.py
