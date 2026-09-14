@@ -1,1 +1,0 @@
-Deep learning is a type of machine learning used for image recognition and natural language processing.
