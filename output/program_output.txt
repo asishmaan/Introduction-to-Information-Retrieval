@@ -1,0 +1,89 @@
+
+========================================================================
+DOCUMENT COLLECTION
+========================================================================
+  D1  Information retrieval    doc1_information_retrieval.txt      2199 terms
+  D2  Search engine            doc2_search_engine.txt              3314 terms
+  D3  Vector space model       doc3_vector_space_model.txt          608 terms
+  D4  Machine learning         doc4_machine_learning.txt           5102 terms
+  D5  Deep learning            doc5_deep_learning.txt              5257 terms
+  D6  Climate change           doc6_climate_change.txt             5748 terms
+  D7  Renewable energy         doc7_renewable_energy.txt           5309 terms
+  D8  Association football     doc8_association_football.txt       4136 terms
+
+  Vocabulary size (unique stemmed terms): 4471
+
+========================================================================
+TOP 5 TF-IDF TERMS PER DOCUMENT
+========================================================================
+  D1: ir (0.118), kent (0.088), sigir (0.088), gerard (0.083), cranfield (0.083)
+  D2: crawler (0.092), crawl (0.092), ftp (0.091), archi (0.091), wander (0.086)
+  D3: vsm (0.181), cosin (0.181), angl (0.167), bag (0.147), wong (0.147)
+  D4: dictionari (0.075), induct (0.073), bayesian (0.073), anomali (0.071), optimis (0.069)
+  D5: dnn (0.078), rnn (0.076), cnn (0.075), lstm (0.071), differenti (0.066)
+  D6: gase (0.082), aerosol (0.068), warm (0.066), arctic (0.064), vapour (0.064)
+  D7: photovolta (0.073), gw (0.069), turbin (0.068), renew (0.067), hydroelectr (0.067)
+  D8: ball (0.093), leagu (0.088), cup (0.086), kick (0.085), fifa (0.084)
+
+========================================================================
+COSINE SIMILARITY MATRIX
+========================================================================
+         D1     D2     D3     D4     D5     D6     D7     D8   
+  D1     1.000  0.119  0.101  0.110  0.101  0.049  0.044  0.044
+  D2     0.119  1.000  0.046  0.088  0.088  0.069  0.067  0.069
+  D3     0.101  0.046  1.000  0.051  0.053  0.022  0.020  0.017
+  D4     0.110  0.088  0.051  1.000  0.242  0.092  0.080  0.068
+  D5     0.101  0.088  0.053  0.242  1.000  0.079  0.072  0.059
+  D6     0.049  0.069  0.022  0.092  0.079  1.000  0.257  0.098
+  D7     0.044  0.067  0.020  0.080  0.072  0.257  1.000  0.078
+  D8     0.044  0.069  0.017  0.068  0.059  0.098  0.078  1.000
+
+========================================================================
+MOST SIMILAR DOCUMENT PAIRS
+========================================================================
+  0.257  D6 Climate change           <-> D7 Renewable energy
+  0.242  D4 Machine learning         <-> D5 Deep learning
+  0.119  D1 Information retrieval    <-> D2 Search engine
+  0.110  D1 Information retrieval    <-> D4 Machine learning
+  0.101  D1 Information retrieval    <-> D3 Vector space model
+  ...
+  0.017  D3 Vector space model       <-> D8 Association football   (least similar)
+
+========================================================================
+QUERY RANKING
+========================================================================
+  Query: "ranking documents with term weighting and cosine similarity"
+    1. D3 Vector space model       score = 0.2013
+    2. D1 Information retrieval    score = 0.0140
+    3. D2 Search engine            score = 0.0130
+
+  Query: "neural networks learn from training data"
+    1. D4 Machine learning         score = 0.0827
+    2. D5 Deep learning            score = 0.0817
+    3. D1 Information retrieval    score = 0.0496
+
+  Query: "greenhouse gas emissions and solar power"
+    1. D6 Climate change           score = 0.1021
+    2. D7 Renewable energy         score = 0.0921
+    3. D4 Machine learning         score = 0.0080
+
+  Query: "goalkeeper scores in the world cup"
+    1. D8 Association football     score = 0.1128
+    2. D1 Information retrieval    score = 0.0066
+    3. D2 Search engine            score = 0.0035
+
+
+========================================================================
+VERIFICATION WITH SCIKIT-LEARN
+========================================================================
+  D1: nearest neighbour  ours = D2   scikit-learn = D4
+  D2: nearest neighbour  ours = D1   scikit-learn = D1
+  D3: nearest neighbour  ours = D1   scikit-learn = D1
+  D4: nearest neighbour  ours = D5   scikit-learn = D5
+  D5: nearest neighbour  ours = D4   scikit-learn = D4
+  D6: nearest neighbour  ours = D7   scikit-learn = D7
+  D7: nearest neighbour  ours = D6   scikit-learn = D6
+  D8: nearest neighbour  ours = D6   scikit-learn = D6
+  Agreement on nearest neighbour: 7/8 documents
+
+  Heatmap saved to output\similarity_heatmap.png

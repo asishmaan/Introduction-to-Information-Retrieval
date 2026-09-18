@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.docx
+!documents/*.docx
+*.pdf
+!documents/*.pdf
