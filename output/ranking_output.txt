@@ -1,0 +1,195 @@
+
+========================================================================
+COLLECTION STATISTICS
+========================================================================
+  D1  Information retrieval    |d| =  2199   (|d| / avgdl = 0.56)
+  D2  Search engine            |d| =  3314   (|d| / avgdl = 0.84)
+  D3  Vector space model       |d| =   608   (|d| / avgdl = 0.15)
+  D4  Machine learning         |d| =  5102   (|d| / avgdl = 1.29)
+  D5  Deep learning            |d| =  5257   (|d| / avgdl = 1.33)
+  D6  Climate change           |d| =  5748   (|d| / avgdl = 1.45)
+  D7  Renewable energy         |d| =  5309   (|d| / avgdl = 1.34)
+  D8  Association football     |d| =  4136   (|d| / avgdl = 1.04)
+
+  N = 8   avgdl = 3959.1   |C| = 31673   vocabulary = 4471
+
+========================================================================
+WORKED EXAMPLE  query = "greenhouse gas emissions and solar power"
+========================================================================
+  Query terms after preprocessing: ['greenhous', 'ga', 'emiss', 'solar', 'power']
+
+  D6 Climate change  (|d| = 5748)
+    term         tf   df     idf     BM25     P(t|d)    log P
+    greenhous    41    2   1.281    2.712   0.006562   -5.027
+    ga           23    3   0.944    1.942   0.003712   -5.596
+    emiss        66    2   1.281    2.751   0.010596   -4.547
+    solar        11    2   1.281    2.459   0.002057   -6.187
+    power        11    5   0.492    0.945   0.002054   -6.188
+    total                          10.809             -27.545
+
+  D7 Renewable energy  (|d| = 5309)
+    term         tf   df     idf     BM25     P(t|d)    log P
+    greenhous     4    2   1.281    2.047   0.000820   -7.106
+    ga           11    3   0.944    1.827   0.001975   -6.227
+    emiss        17    2   1.281    2.589   0.003144   -5.762
+    solar        95    2   1.281    2.774   0.016439   -4.108
+    power        84    5   0.492    1.064   0.014571   -4.229
+    total                          10.301             -27.432
+
+
+========================================================================
+RANKINGS: TF-IDF COSINE vs BM25 vs JELINEK-MERCER
+========================================================================
+  Query: "ranking documents with term weighting and cosine similarity"
+    TF-IDF cosine (Week 3)
+      1. D3 Vector space model       score =   0.2013
+      2. D1 Information retrieval    score =   0.0140
+      3. D2 Search engine            score =   0.0130
+    BM25 (k1 = 1.2, b = 0.75)
+      1. D3 Vector space model       score =   6.9191
+      2. D2 Search engine            score =   2.7646
+      3. D1 Information retrieval    score =   2.3835
+    LM Jelinek-Mercer (lambda = 0.1)
+      1. D3 Vector space model       score = -25.9273
+      2. D1 Information retrieval    score = -40.7391
+      3. D2 Search engine            score = -44.5527
+
+  Query: "neural networks learn from training data"
+    TF-IDF cosine (Week 3)
+      1. D4 Machine learning         score =   0.0827
+      2. D5 Deep learning            score =   0.0817
+      3. D1 Information retrieval    score =   0.0496
+    BM25 (k1 = 1.2, b = 0.75)
+      1. D5 Deep learning            score =   7.4815
+      2. D4 Machine learning         score =   7.3755
+      3. D1 Information retrieval    score =   4.8061
+    LM Jelinek-Mercer (lambda = 0.1)
+      1. D5 Deep learning            score = -21.0269
+      2. D4 Machine learning         score = -21.7363
+      3. D1 Information retrieval    score = -30.6370
+
+  Query: "greenhouse gas emissions and solar power"
+    TF-IDF cosine (Week 3)
+      1. D6 Climate change           score =   0.1021
+      2. D7 Renewable energy         score =   0.0921
+      3. D4 Machine learning         score =   0.0080
+    BM25 (k1 = 1.2, b = 0.75)
+      1. D6 Climate change           score =  10.8093
+      2. D7 Renewable energy         score =  10.3014
+      3. D4 Machine learning         score =   1.2852
+    LM Jelinek-Mercer (lambda = 0.1)
+      1. D7 Renewable energy         score = -27.4321
+      2. D6 Climate change           score = -27.5446
+      3. D2 Search engine            score = -40.4532
+
+  Query: "goalkeeper scores in the world cup"
+    TF-IDF cosine (Week 3)
+      1. D8 Association football     score =   0.1128
+      2. D1 Information retrieval    score =   0.0066
+      3. D2 Search engine            score =   0.0035
+    BM25 (k1 = 1.2, b = 0.75)
+      1. D8 Association football     score =   9.1787
+      2. D1 Information retrieval    score =   1.6166
+      3. D2 Search engine            score =   1.1017
+    LM Jelinek-Mercer (lambda = 0.1)
+      1. D8 Association football     score = -20.9383
+      2. D1 Information retrieval    score = -31.7920
+      3. D2 Search engine            score = -33.2103
+
+  Query: "crawler"
+    TF-IDF cosine (Week 3)
+      1. D2 Search engine            score =   0.0922
+      2. D1 Information retrieval    score =   0.0000
+      3. D3 Vector space model       score =   0.0000
+    BM25 (k1 = 1.2, b = 0.75)
+      1. D2 Search engine            score =   3.6660
+      2. D1 Information retrieval    score =   0.0000
+      3. D3 Vector space model       score =   0.0000
+    LM Jelinek-Mercer (lambda = 0.1)
+      1. D2 Search engine            score =  -5.5607
+      2. D1 Information retrieval    score = -10.0267
+      3. D3 Vector space model       score = -10.0267
+
+  Query: "how do search engines crawl the web and index pages so that users can find relevant results quickly"
+    TF-IDF cosine (Week 3)
+      1. D2 Search engine            score =   0.1317
+      2. D1 Information retrieval    score =   0.0526
+      3. D3 Vector space model       score =   0.0378
+    BM25 (k1 = 1.2, b = 0.75)
+      1. D2 Search engine            score =  14.0749
+      2. D1 Information retrieval    score =   9.4477
+      3. D5 Deep learning            score =   4.5937
+    LM Jelinek-Mercer (lambda = 0.1)
+      1. D2 Search engine            score = -52.5491
+      2. D1 Information retrieval    score = -67.6819
+      3. D3 Vector space model       score = -83.0672
+
+
+========================================================================
+BM25 TERM FREQUENCY SATURATION  (document of average length)
+========================================================================
+     tf   raw tf  1+log10 tf  BM25 k1=1.2   JM log P
+      1        1       1.000        1.000     -8.375
+      2        2       1.301        1.375     -7.682
+      5        5       1.699        1.774     -6.766
+     10       10       2.000        1.964     -6.073
+     20       20       2.301        2.075     -5.380
+     50       50       2.699        2.148     -4.463
+    100      100       3.000        2.174     -3.770
+
+========================================================================
+BM25 LENGTH NORMALISATION  (parameter b)
+========================================================================
+  Query: "ranking documents with term weighting and cosine similarity"
+       b       D1       D2       D3       D4       D5       D6       D7       D8
+    0.00    2.334    2.694    6.098    2.277    1.191    0.197    0.494    1.207
+    0.25    2.350    2.717    6.346    2.222    1.181    0.193    0.475    1.202
+    0.50    2.367    2.740    6.619    2.170    1.170    0.189    0.459    1.197
+    0.75    2.384    2.765    6.919    2.121    1.160    0.186    0.443    1.192
+    1.00    2.401    2.790    7.252    2.074    1.151    0.182    0.429    1.187
+
+========================================================================
+CLASSIC RSJ IDF vs BM25 IDF (terms in more than half the documents)
+========================================================================
+  492 of 4471 terms occur in more than 4 of the 8 documents.
+  term          df   classic idf   BM25 idf
+  data           7        -1.609      0.182
+  model          6        -0.956      0.325
+  search         5        -0.452      0.492
+  use            8        -2.833      0.057
+  energi         4         0.000      0.693
+
+========================================================================
+JELINEK-MERCER SMOOTHING  (parameter lambda)
+========================================================================
+  Query: "crawler"
+    lambda = 0.01  D2   -5.48    D1  -12.33    D3  -12.33
+    lambda = 0.1   D2   -5.56    D1  -10.03    D3  -10.03
+    lambda = 0.3   D2   -5.78    D1   -8.93    D3   -8.93
+    lambda = 0.5   D2   -6.06    D1   -8.42    D3   -8.42
+    lambda = 0.7   D2   -6.45    D1   -8.08    D3   -8.08
+    lambda = 0.9   D2   -7.11    D1   -7.83    D3   -7.83
+
+  Query: "how do search engines crawl the web and index pages so th..."
+    lambda = 0.01  D2  -51.72    D1  -69.73    D4  -92.10
+    lambda = 0.1   D2  -52.55    D1  -67.68    D3  -83.07
+    lambda = 0.3   D2  -54.66    D1  -67.26    D3  -76.50
+    lambda = 0.5   D2  -57.30    D1  -67.60    D3  -73.58
+    lambda = 0.7   D2  -60.83    D1  -68.37    D3  -71.85
+    lambda = 0.9   D2  -66.25    D1  -69.70    D3  -70.90
+
+
+========================================================================
+DOCUMENTS MISSING A QUERY TERM
+========================================================================
+  Query: "goalkeeper scores in the world cup"  terms = ['goalkeep', 'score', 'world', 'cup']
+  D1  missing ['goalkeep', 'cup']                      unsmoothed P(q|d) = 0 (log = -inf)  JM log P(q|d) =   -31.79
+  D2  missing ['goalkeep', 'cup']                      unsmoothed P(q|d) = 0 (log = -inf)  JM log P(q|d) =   -33.21
+  D3  missing ['goalkeep', 'score', 'world', 'cup']    unsmoothed P(q|d) = 0 (log = -inf)  JM log P(q|d) =   -36.82
+  D4  missing ['goalkeep', 'cup']                      unsmoothed P(q|d) = 0 (log = -inf)  JM log P(q|d) =   -34.52
+  D5  missing ['goalkeep', 'score', 'cup']             unsmoothed P(q|d) = 0 (log = -inf)  JM log P(q|d) =   -36.38
+  D6  missing ['goalkeep', 'score', 'cup']             unsmoothed P(q|d) = 0 (log = -inf)  JM log P(q|d) =   -34.68
+  D7  missing ['goalkeep', 'score', 'cup']             unsmoothed P(q|d) = 0 (log = -inf)  JM log P(q|d) =   -34.18
+  D8  missing []                                       unsmoothed P(q|d) = > 0             JM log P(q|d) =   -20.94
+
+  Parameter plots saved to output\parameter_effects.png
