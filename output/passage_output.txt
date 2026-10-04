@@ -1,0 +1,264 @@
+
+========================================================================
+PASSAGE SEGMENTATION
+========================================================================
+  segmenter     passages  avg terms   min   max
+  paragraph          838       37.0     1   185
+  window            2104       29.9    16    49
+  sentence          2389       39.3     1   242
+
+  Whole documents: 8, avg terms = 3959.1
+
+========================================================================
+QUESTION: "which gas is the main driver of global warming"
+========================================================================
+  Terms: ['ga', 'main', 'driver', 'global', 'warm']
+  Best whole document (BM25): D6 Climate change (5748 terms to read)
+
+    BM25, paragraph passages
+      D6.0   Climate change           score = 12.769
+        "Present-day climate change includes both global warming—the ongoing increase in global average temperature—and its wider effects on Earth's climate..."
+    BM25, window passages
+      D6.3   Climate change           score = 14.280
+        "of the heat that the Earth radiates after it warms from sunlight, warming the lower atmosphere. Earth's atmosphere now has roughly 50% more carbon ..."
+    BM25, sentence passages
+      D6.4   Climate change           score = 13.407
+        "These gases absorb some of the heat that the Earth radiates after it warms from sunlight, warming the lower atmosphere. Earth's atmosphere now has ..."
+    Term density, sentence passages
+      D6.3   Climate change           score = 3.200
+        "Fossil fuel use, deforestation, and some agricultural and industrial practices release greenhouse gases. These gases absorb some of the heat that t..."
+    Two-stage (top 2 docs), sentences
+      D6.4   Climate change           score = 13.407
+        "These gases absorb some of the heat that the Earth radiates after it warms from sunlight, warming the lower atmosphere. Earth's atmosphere now has ..."
+    Passage + document (w = 0.3), sentences
+      D6.4   Climate change           score = 1.000
+        "These gases absorb some of the heat that the Earth radiates after it warms from sunlight, warming the lower atmosphere. Earth's atmosphere now has ..."
+
+========================================================================
+QUESTION: "who created Archie, the first search engine"
+========================================================================
+  Terms: ['creat', 'archi', 'first', 'search', 'engin']
+  Best whole document (BM25): D2 Search engine (3314 terms to read)
+
+    BM25, paragraph passages
+      D2.55  Search engine            score = 20.419
+        "The first web search engine was Archie, created in 1990 by Alan Emtage, a student at McGill University in Montreal."
+    BM25, window passages
+      D2.158 Search engine            score = 17.221
+        "systems that rank resources based on the number of external links pointing to it. However, both types of ranking are vulnerable to fraud, (see Gami..."
+    BM25, sentence passages
+      D2.182 Search engine            score = 15.514
+        "Technology  Archie The first web search engine was Archie, created in 1990 by Alan Emtage, a student at McGill University in Montreal. The primary ..."
+    Term density, sentence passages
+      D2.180 Search engine            score = 4.167
+        "Additionally, a social bookmarking system can rank a resource based on how many times it has been bookmarked by users, which may be a more useful m..."
+    Two-stage (top 2 docs), sentences
+      D2.182 Search engine            score = 15.514
+        "Technology  Archie The first web search engine was Archie, created in 1990 by Alan Emtage, a student at McGill University in Montreal. The primary ..."
+    Passage + document (w = 0.3), sentences
+      D2.182 Search engine            score = 1.000
+        "Technology  Archie The first web search engine was Archie, created in 1990 by Alan Emtage, a student at McGill University in Montreal. The primary ..."
+
+========================================================================
+QUESTION: "how many players are on a football team"
+========================================================================
+  Terms: ['player', 'footbal', 'team']
+  Best whole document (BM25): D8 Association football (4136 terms to read)
+
+    BM25, paragraph passages
+      D8.0   Association football     score = 12.764
+        "Association football, commonly known as football or soccer, is a team sport played between two teams of 11 players who mostly use their feet to kic..."
+    BM25, window passages
+      D8.0   Association football     score = 11.707
+        "Association football, commonly known as football or soccer, is a team sport played between two teams of 11 players who mostly use their feet to kic..."
+    BM25, sentence passages
+      D8.0   Association football     score = 11.145
+        "Association football, commonly known as football or soccer, is a team sport played between two teams of 11 players who mostly use their feet to kic..."
+    Term density, sentence passages
+      D8.79  Association football     score = 2.000
+        "In many parts of the world, football evokes great passions and plays an important role in the life of individual fans, local communities, and even ..."
+    Two-stage (top 2 docs), sentences
+      D8.0   Association football     score = 11.145
+        "Association football, commonly known as football or soccer, is a team sport played between two teams of 11 players who mostly use their feet to kic..."
+    Passage + document (w = 0.3), sentences
+      D8.0   Association football     score = 1.000
+        "Association football, commonly known as football or soccer, is a team sport played between two teams of 11 players who mostly use their feet to kic..."
+
+========================================================================
+QUESTION: "who proposed the classic vector space model"
+========================================================================
+  Terms: ['propos', 'classic', 'vector', 'space', 'model']
+  Best whole document (BM25): D3 Vector space model (608 terms to read)
+
+    BM25, paragraph passages
+      D3.13  Vector space model       score = 20.498
+        "In the classic vector space model proposed by Salton, Wong and Yang, the term-specific weights in the document vectors are products of local and gl..."
+    BM25, window passages
+      D3.14  Vector space model       score = 18.687
+        "of zero means that the query and document vector are orthogonal and have no match (i.e. the query term does not exist in the document being conside..."
+    BM25, sentence passages
+      D3.17  Vector space model       score = 19.015
+        "See cosine similarity for further information. Term frequency–inverse document frequency (tf–idf) weights In the classic vector space model propose..."
+    Term density, sentence passages
+      D3.16  Vector space model       score = 5.000
+        "The norm of a vector is calculated as such:  Using the cosine the similarity between document dj and query q can be calculated as:  As all vectors ..."
+    Two-stage (top 2 docs), sentences
+      D3.17  Vector space model       score = 19.015
+        "See cosine similarity for further information. Term frequency–inverse document frequency (tf–idf) weights In the classic vector space model propose..."
+    Passage + document (w = 0.3), sentences
+      D3.17  Vector space model       score = 1.000
+        "See cosine similarity for further information. Term frequency–inverse document frequency (tf–idf) weights In the classic vector space model propose..."
+
+========================================================================
+QUESTION: "what is the chief cause of the planet heating up"
+========================================================================
+  Terms: ['chief', 'caus', 'planet', 'heat']
+  Best whole document (BM25): D6 Climate change (5748 terms to read)
+
+    BM25, paragraph passages
+      D6.100 Climate change           score = 9.755
+        "Scientists in the 19th century such as Alexander von Humboldt began to foresee the effects of climate change. In the 1820s, Joseph Fourier proposed..."
+    BM25, window passages
+      D6.360 Climate change           score = 11.546
+        "is transparent to sunlight, so sunlight reaches the surface where it is converted to heat. However, the atmosphere is not transparent to heat radia..."
+    BM25, sentence passages
+      D6.458 Climate change           score = 10.708
+        "In the 1820s, Joseph Fourier proposed the greenhouse effect to explain why Earth's temperature was higher than the Sun's energy alone could explain..."
+    Term density, sentence passages
+      D2.201 Search engine            score = 1.000
+        "Initially, the Wanderer counted only Web servers, but shortly after its introduction, it started to capture URLs as it went along. The database of ..."
+    Two-stage (top 2 docs), sentences
+      D6.458 Climate change           score = 10.708
+        "In the 1820s, Joseph Fourier proposed the greenhouse effect to explain why Earth's temperature was higher than the Sun's energy alone could explain..."
+    Passage + document (w = 0.3), sentences
+      D6.458 Climate change           score = 1.000
+        "In the 1820s, Joseph Fourier proposed the greenhouse effect to explain why Earth's temperature was higher than the Sun's energy alone could explain..."
+
+========================================================================
+QUESTION: "who built the earliest internet lookup tool"
+========================================================================
+  Terms: ['built', 'earliest', 'internet', 'lookup', 'tool']
+  Best whole document (BM25): D2 Search engine (3314 terms to read)
+
+    BM25, paragraph passages
+      D1.49  Information retrieval    score = 7.338
+        "1951: Philip Bagley conducted the earliest experiment in computerized document retrieval in a master thesis at MIT."
+    BM25, window passages
+      D2.19  Search engine            score = 9.019
+        "central list could no longer keep up. On the NCSA site, new servers were announced under the title "What's New!". The first tool used for searching..."
+    BM25, sentence passages
+      D2.19  Search engine            score = 10.081
+        "On the NCSA site, new servers were announced under the title "What's New!". The first tool used for searching content (as opposed to users) on the ..."
+    Term density, sentence passages
+      D1.87  Information retrieval    score = 1.000
+        "All measures assume a ground truth notion of relevance: every document is known to be either relevant or non-relevant to a particular query. In pra..."
+    Two-stage (top 2 docs), sentences
+      D2.19  Search engine            score = 10.081
+        "On the NCSA site, new servers were announced under the title "What's New!". The first tool used for searching content (as opposed to users) on the ..."
+    Passage + document (w = 0.3), sentences
+      D2.19  Search engine            score = 1.000
+        "On the NCSA site, new servers were announced under the title "What's New!". The first tool used for searching content (as opposed to users) on the ..."
+
+========================================================================
+QUESTION: "how many people does each soccer side field"
+========================================================================
+  Terms: ['peopl', 'soccer', 'side', 'field']
+  Best whole document (BM25): D8 Association football (4136 terms to read)
+
+    BM25, paragraph passages
+      D8.88  Association football     score = 12.363
+        "Variants of association football have been codified for teams of reduced size, such as five-a-side football; for non-traditional playing environmen..."
+    BM25, window passages
+      D8.302 Association football     score = 11.254
+        "€19.6 billion. Variants and casual play Variants of association football have been codified for teams of reduced size, such as five-a-side football..."
+    BM25, sentence passages
+      D8.313 Association football     score = 11.108
+        "Variants and casual play  Variants of association football have been codified for teams of reduced size, such as five-a-side football; for non-trad..."
+    Term density, sentence passages
+      D1.125 Information retrieval    score = 1.000
+        "It's a sparse neural retrieval model that balances lexical and semantic features using masked language modeling and sparsity regularization. 2022: ..."
+    Two-stage (top 2 docs), sentences
+      D8.313 Association football     score = 11.108
+        "Variants and casual play  Variants of association football have been codified for teams of reduced size, such as five-a-side football; for non-trad..."
+    Passage + document (w = 0.3), sentences
+      D8.313 Association football     score = 1.000
+        "Variants and casual play  Variants of association football have been codified for teams of reduced size, such as five-a-side football; for non-trad..."
+
+========================================================================
+QUESTION: "who came up with representing texts as weighted term vectors"
+========================================================================
+  Terms: ['came', 'repres', 'text', 'weight', 'term', 'vector']
+  Best whole document (BM25): D3 Vector space model (608 terms to read)
+
+    BM25, paragraph passages
+      D3.0   Vector space model       score = 15.947
+        "Vector space model (VSM) or term vector model is an algebraic model for representing text documents (or more generally, items) as vectors such that..."
+    BM25, window passages
+      D3.3   Vector space model       score = 17.402
+        "are represented as vectors. Each dimension corresponds to a separate term. If a term occurs in the document, its value in the vector is non-zero. S..."
+    BM25, sentence passages
+      D3.0   Vector space model       score = 16.583
+        "Vector space model (VSM) or term vector model is an algebraic model for representing text documents (or more generally, items) as vectors such that..."
+    Term density, sentence passages
+      D3.0   Vector space model       score = 2.286
+        "Vector space model (VSM) or term vector model is an algebraic model for representing text documents (or more generally, items) as vectors such that..."
+    Two-stage (top 2 docs), sentences
+      D3.0   Vector space model       score = 16.583
+        "Vector space model (VSM) or term vector model is an algebraic model for representing text documents (or more generally, items) as vectors such that..."
+    Passage + document (w = 0.3), sentences
+      D3.0   Vector space model       score = 1.000
+        "Vector space model (VSM) or term vector model is an algebraic model for representing text documents (or more generally, items) as vectors such that..."
+
+========================================================================
+EVALUATION  (does the passage contain the answer?)
+========================================================================
+  15 factoid questions, asked twice: in the words of the
+  text, then paraphrased. Top-1 = answer in the first passage;
+  MRR@5 = mean of 1/rank of the first correct passage in the top 5.
+
+  WORDED LIKE THE TEXT
+  method                                      top-1  top-5   MRR@5  words
+  BM25, paragraph passages                    15/15  15/15   1.000     93
+  BM25, window passages                       11/15  15/15   0.856     50
+  BM25, sentence passages                     15/15  15/15   1.000     63
+  Term density, sentence passages             12/15  14/15   0.839     74
+  Two-stage (top 2 docs), sentences           15/15  15/15   1.000     63
+  Passage + document (w = 0.3), sentences     15/15  15/15   1.000     63
+
+  PARAPHRASED
+  method                                      top-1  top-5   MRR@5  words
+  BM25, paragraph passages                     1/15   9/15   0.267     84
+  BM25, window passages                        1/15   9/15   0.238     50
+  BM25, sentence passages                      3/15   8/15   0.330     68
+  Term density, sentence passages              0/15   3/15   0.072     82
+  Two-stage (top 2 docs), sentences            3/15   8/15   0.336     68
+  Passage + document (w = 0.3), sentences      3/15   8/15   0.336     68
+
+  words = average length of the top passage the user has to read.
+
+========================================================================
+PARAPHRASED QUESTIONS: RANK OF THE FIRST CORRECT PASSAGE (- = not in top 5)
+========================================================================
+  question                                              M1  M2  M3  M4  M5  M6
+  what is the chief cause of the planet heating up       3   3   2   -   2   2
+  who built the earliest internet lookup tool            3   1   2   -   2   2
+  how did Google order its results using links           3   5   5   -   5   5
+  who invented the first trainable artificial neuron     -   -   -   -   -   -
+  who started the earliest big team studying docu...     -   -   -   -   -   -
+  how many people does each soccer side field            2   5   1   -   1   1
+  what temperature cap did countries accept in th...     4   3   4   -   3   3
+  who made the error propagation training method ...     4   -   -   -   -   -
+  who wrote the earliest program that automatical...     -   -   -   -   -   -
+  how is the quality of a search system's output ...     -   -   -   -   -   -
+  which model won the big image recognition conte...     -   2   -   4   -   -
+  which nation generates the most electricity fro...     1   4   1   -   1   1
+  in what year were soccer's rules first written ...     2   2   1   3   1   1
+  which body is in charge of the rules of soccer         -   -   -   -   -   -
+  who came up with representing texts as weighted...     2   4   2   2   2   2
+
+  M1 = BM25, paragraph passages
+  M2 = BM25, window passages
+  M3 = BM25, sentence passages
+  M4 = Term density, sentence passages
+  M5 = Two-stage (top 2 docs), sentences
+  M6 = Passage + document (w = 0.3), sentences
