@@ -6,3 +6,4 @@ venv/
 !documents/*.docx
 *.pdf
 !documents/*.pdf
+output/snapshots/

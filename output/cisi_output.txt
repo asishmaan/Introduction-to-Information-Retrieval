@@ -1,0 +1,214 @@
+
+==============================================================================
+1. THE DATASET: CISI
+==============================================================================
+  Source                    data\cisi (CISI.ALL, CISI.QRY, CISI.REL)
+  Documents                 1460
+  Queries                   112
+  Queries with judgements   76
+  Relevance judgements      3114 (binary)
+  Relevant per query        min 1, mean 41.0, max 155
+
+  Sample document
+    D1 title    18 Editions of the Dewey Decimal Classifications
+       author   Comaromi, J.P.
+       text     18 Editions of the Dewey Decimal Classifications The present st...
+
+  Sample queries
+    Q1    What problems and concerns are there in making up descriptive t...
+    Q3    What is information science? Give definitions where possible.
+    Q77   This paper presents a method of normalizations of English title...
+
+==============================================================================
+2. PREPROCESSING: WHAT EACH STEP REMOVES
+==============================================================================
+  pipeline                      tokens   vocabulary   vs. step 1
+  tokenize only                180,281        9,601         0.0%
+  + stop word removal          101,109        9,466         1.4%
+  + Porter stemming            101,109        5,645        41.2%
+
+  Stop word removal cuts tokens but barely touches the vocabulary;
+  stemming is the opposite - it merges word forms into fewer terms.
+
+==============================================================================
+3. THE INVERTED INDEX
+==============================================================================
+  Documents indexed         1460
+  Vocabulary (index terms)  5,645
+  Postings                  73,738
+  Tokens indexed            101,109
+  Average document length   69.3 terms
+  Shortest / longest        7 / 326 terms
+  Terms in only one document 2,391 (42% of the vocabulary)
+
+  Ten most frequent index terms
+  term                cf      df      idf
+  librari           1887     554    0.421
+  inform            1679     660    0.345
+  system            1267     515    0.453
+  index              717     254    0.760
+  use                675     427    0.534
+  research           624     362    0.606
+  retriev            619     296    0.693
+  data               601     304    0.681
+  studi              577     362    0.606
+  document           568     251    0.765
+
+  Postings list for "classif" (first 10 of 105 entries)
+    D1:2  D9:1  D16:4  D45:6  D53:1  D83:1  D151:1  D154:1  D176:1  D186:1
+
+==============================================================================
+4. RETRIEVAL ON THREE SHOWCASE QUERIES
+==============================================================================
+
+  Q3: "What is information science? Give definitions where possible."
+  Index terms (5): ['inform', 'scienc', 'give', 'definit', 'possibl']
+  Relevant documents in the ground truth: 44
+
+    Boolean OR (term match count)   [890 documents scored]
+       1. D1181 The Origins of the Information Crisis: A Contribution t...    5.000  <- relevant
+       2. D160  Analysis and Organization of Knowledge for Retrieval          4.000
+       3. D540  Information: Methodology                                      4.000  <- relevant
+       4. D47   Improvement of the Selectivity of Citation Indexes to S...    3.000
+       5. D85   Information Science: Toward the Development of a True S...    3.000  <- relevant
+
+    TF-IDF cosine   [890 documents scored]
+       1. D1181 The Origins of the Information Crisis: A Contribution t...    0.260  <- relevant
+       2. D1133 Thesauri in Informatics and in Theoretical Semantics          0.240
+       3. D540  Information: Methodology                                      0.219  <- relevant
+       4. D1179 Topical Aspects of Informatics to-date                        0.201  <- relevant
+       5. D469  The Phenomena of Interest to Information Science              0.200  <- relevant
+
+    Okapi BM25 (k1=1.2, b=0.75)   [890 documents scored]
+       1. D1181 The Origins of the Information Crisis: A Contribution t...   14.989  <- relevant
+       2. D540  Information: Methodology                                     11.396  <- relevant
+       3. D469  The Phenomena of Interest to Information Science             10.331  <- relevant
+       4. D1179 Topical Aspects of Informatics to-date                        9.218  <- relevant
+       5. D1077 Comments about Terminology in Documentation. II: commun...    8.163
+
+    Jelinek-Mercer LM (lambda=0.7)   [1460 documents scored]
+       1. D1181 The Origins of the Information Crisis: A Contribution t...  -21.630  <- relevant
+       2. D540  Information: Methodology                                    -23.360  <- relevant
+       3. D469  The Phenomena of Interest to Information Science            -23.806  <- relevant
+       4. D1133 Thesauri in Informatics and in Theoretical Semantics        -25.363
+       5. D1179 Topical Aspects of Informatics to-date                      -25.550  <- relevant
+
+
+  Q18: "What methods are there for encoding, automatically matching, and au..."
+  Index terms (15): ['method', 'encod', 'automat', 'match', 'automat', 'draw', 'structur', 'extend', 'two', 'dimens'] ...
+  Relevant documents in the ground truth: 11
+
+    Boolean OR (term match count)   [726 documents scored]
+       1. D668  The Automatic Encoding of Chemical Structures                 6.000
+       2. D150  Current Awareness Searches on CT, CBAS and ASCA               5.000
+       3. D669  Rapid Structure Searches via Permuted Chemical Line-Not...    5.000
+       4. D694  Computer Generation of Wiswesser Line Notation                5.000
+       5. D705  Comparative Searching of Computer Data Bases                  5.000
+
+    TF-IDF cosine   [726 documents scored]
+       1. D668  The Automatic Encoding of Chemical Structures                 0.224
+       2. D698  Encoding and Decoding WLN                                     0.180
+       3. D1092 Method for Relating the Structure and Properties of Che...    0.175  <- relevant
+       4. D1452 The Wiswesser Line-Formula Chemical Notation (WLN)            0.171  <- relevant
+       5. D175  Automatic Information, Organization and Retrieval             0.168  <- relevant
+
+    Okapi BM25 (k1=1.2, b=0.75)   [726 documents scored]
+       1. D668  The Automatic Encoding of Chemical Structures                26.483
+       2. D1452 The Wiswesser Line-Formula Chemical Notation (WLN)           18.763  <- relevant
+       3. D669  Rapid Structure Searches via Permuted Chemical Line-Not...   17.624
+       4. D671  The Generation of a Unique Machine Description for Chem...   16.772
+       5. D694  Computer Generation of Wiswesser Line Notation               16.512
+
+    Jelinek-Mercer LM (lambda=0.7)   [1460 documents scored]
+       1. D668  The Automatic Encoding of Chemical Structures               -90.317
+       2. D669  Rapid Structure Searches via Permuted Chemical Line-Not...  -98.220
+       3. D1452 The Wiswesser Line-Formula Chemical Notation (WLN)          -98.644  <- relevant
+       4. D1092 Method for Relating the Structure and Properties of Che...  -98.873  <- relevant
+       5. D671  The Generation of a Unique Machine Description for Chem...  -99.058
+
+
+  Q35: "Government supported agencies and projects dealing with information..."
+  Index terms (7): ['govern', 'support', 'agenc', 'project', 'deal', 'inform', 'dissemin']
+  Relevant documents in the ground truth: 43
+
+    Boolean OR (term match count)   [800 documents scored]
+       1. D375  Encyclopedia of Information Systems and Services              5.000
+       2. D18   Selective Dissemination of Information                        4.000  <- relevant
+       3. D340  Cooperation Between Types of Libraries                        4.000
+       4. D385  Evaluative Research Principles and Practice in Public S...    4.000  <- relevant
+       5. D947  Library Networks                                              4.000
+
+    TF-IDF cosine   [800 documents scored]
+       1. D286  User's Reaction to Microfiche A Preliminary Study             0.191  <- relevant
+       2. D18   Selective Dissemination of Information                        0.184  <- relevant
+       3. D375  Encyclopedia of Information Systems and Services              0.184
+       4. D1207 Technical Information Project                                 0.176  <- relevant
+       5. D1362 The CAN/SDI Project Th SDI Program of Canada's National...    0.161
+
+    Okapi BM25 (k1=1.2, b=0.75)   [800 documents scored]
+       1. D18   Selective Dissemination of Information                       13.095  <- relevant
+       2. D286  User's Reaction to Microfiche A Preliminary Study            12.708  <- relevant
+       3. D385  Evaluative Research Principles and Practice in Public S...   12.631  <- relevant
+       4. D1207 Technical Information Project                                12.580  <- relevant
+       5. D375  Encyclopedia of Information Systems and Services             12.024
+
+    Jelinek-Mercer LM (lambda=0.7)   [1460 documents scored]
+       1. D286  User's Reaction to Microfiche A Preliminary Study           -40.575  <- relevant
+       2. D18   Selective Dissemination of Information                      -40.599  <- relevant
+       3. D385  Evaluative Research Principles and Practice in Public S...  -40.801  <- relevant
+       4. D375  Encyclopedia of Information Systems and Services            -40.995
+       5. D1207 Technical Information Project                               -41.136  <- relevant
+
+
+==============================================================================
+5. QUERY PROCESSING COST
+==============================================================================
+  Accumulators only touch documents that hold a query term, so the
+  rest of the collection is never scored. The smoothed language
+  model is the exception: every document gets a non-zero score, so
+  all 1,460 have to be ranked however short the query is.
+
+  query      terms  TF-IDF/BM25   of all   JM LM
+  Q3             5          890      61%    1460
+  Q18           15          726      50%    1460
+  Q35            7          800      55%    1460
+  Q77           67         1304      89%    1460
+
+  Q77 is a whole abstract used as a query, so it reaches almost
+  every document; the short questions reach far fewer.
+
+==============================================================================
+6. EFFECTIVENESS CHECK ON THE 76 JUDGED QUERIES
+==============================================================================
+  model                                  P@10     R@10   R-prec
+  Boolean OR (term match count)         0.192    0.064    0.150
+  TF-IDF cosine                         0.313    0.131    0.227
+  Okapi BM25 (k1=1.2, b=0.75)           0.316    0.115    0.209
+  Jelinek-Mercer LM (lambda=0.7)        0.362    0.147    0.240
+
+  Averaged over 76 queries. The full evaluation (MAP, nDCG,
+  precision-recall curves) follows in the Week 7 assignment.
+
+==============================================================================
+7. WHY THESE PARAMETERS (MODEL SELECTION)
+==============================================================================
+  BM25: b controls the length penalty. CISI abstracts are short and
+  fairly even in length, so the default 0.75 is not critical.
+
+  setting                                P@10   R-prec
+  BM25, b = 0.0                         0.270    0.193
+  BM25, b = 0.5                         0.304    0.206
+  BM25, b = 0.75                        0.316    0.209
+  BM25, b = 1.0                         0.300    0.213
+
+  Language model: lambda is the weight on the collection model.
+  Zhai and Lafferty (2004) report that long queries need heavy
+  smoothing. CISI queries are long and the sweep agrees: P@10 is
+  flat from 0.5 to 0.7, and R-precision keeps climbing past it.
+  JM LM, lambda = 0.1                   0.342    0.221
+  JM LM, lambda = 0.3                   0.358    0.231
+  JM LM, lambda = 0.5                   0.370    0.236
+  JM LM, lambda = 0.7                   0.362    0.240
+  JM LM, lambda = 0.9                   0.355    0.249
+
+  Figure saved to output\cisi_collection.png
